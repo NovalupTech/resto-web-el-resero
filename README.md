@@ -51,9 +51,15 @@ Copia `env.example` a `.env` y personaliza:
 ```bash
 cp env.example .env
 ```
-- Actualiza nombre, teléfono, redes sociales
-- Configura URL del mapa de Google Maps
-- Define URL del sitio web para SEO
+
+**⚠️ IMPORTANTE para Redes Sociales:**
+- `PUBLIC_SITE_URL`: Cambia a tu dominio real (ej: `https://mirestaurante.com`)
+- `PUBLIC_NAME`: Nombre de tu restaurante
+- `PUBLIC_LOGO`: Ruta a tu logo
+- Actualiza teléfono, redes sociales, mapa
+
+**🚨 Problema Común:**
+Si al compartir en WhatsApp aparece `localhost`, es porque `PUBLIC_SITE_URL` no está configurado correctamente.
 
 ### 2. Contenido
 - **Hero**: Edita `src/components/Hero.astro` para cambiar el título y descripción

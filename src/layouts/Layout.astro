@@ -3,7 +3,7 @@ import WhatsappButton from '../components/ui/WhatsappButton.astro';
 import InstagramButton from '../components/ui/InstagramButton.astro';
 const name = import.meta.env.PUBLIC_NAME;
 const logo = import.meta.env.PUBLIC_LOGO;
-const url = import.meta.env.PUBLIC_URL_PROD;
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || Astro.url.origin;
 
 export interface Props {
   title: string;
@@ -25,7 +25,7 @@ export interface Props {
     <meta name="author" content={name || "Tu Restaurante"} />
     
     <!-- Canonical URL -->
-    <link rel="canonical" href={Astro.url} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, siteUrl)} />
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -33,10 +33,10 @@ export interface Props {
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
+    <meta property="og:url" content={new URL(Astro.url.pathname, siteUrl)} />
     <meta property="og:title" content={name} />
     <meta property="og:description" content="Restaurante de alta calidad con los mejores sabores. Experiencia culinaria extraordinaria con ambiente elegante y acogedor. Reserva tu mesa ahora." />
-    <meta property="og:image" content={new URL('/og-image.png', url)} />
+    <meta property="og:image" content={new URL('/og-image.png', siteUrl)} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={`${name || "Tu Restaurante"} - Experiencia Culinaria Extraordinaria`} />
@@ -45,10 +45,10 @@ export interface Props {
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={Astro.url} />
+    <meta name="twitter:url" content={new URL(Astro.url.pathname, siteUrl)} />
     <meta name="twitter:title" content={name} />
     <meta name="twitter:description" content="Restaurante de alta calidad con los mejores sabores. Experiencia culinaria extraordinaria con ambiente elegante y acogedor." />
-    <meta name="twitter:image" content={new URL('/og-image.png', url)} />
+    <meta name="twitter:image" content={new URL('/og-image.png', siteUrl)} />
     <meta name="twitter:image:alt" content={`${name || "Tu Restaurante"} - Experiencia Culinaria Extraordinaria`} />
     <meta name="twitter:site" content="@tu_restaurante" />
     <meta name="twitter:creator" content="@tu_restaurante" />
@@ -63,9 +63,9 @@ export interface Props {
       "@type": "Restaurant",
       "name": name || "Tu Restaurante",
       "description": "Restaurante de alta calidad con los mejores sabores",
-      "url": Astro.url.toString(),
-      "logo": new URL(logo, Astro.url).toString(),
-      "image": new URL('/og-image.png', url).toString(),
+      "url": new URL(Astro.url.pathname, siteUrl).toString(),
+      "logo": new URL(logo, siteUrl).toString(),
+      "image": new URL('/og-image.png', siteUrl).toString(),
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Av. Principal 123",
@@ -85,7 +85,7 @@ export interface Props {
       "servesCuisine": "International",
       "priceRange": "$$",
       "acceptsReservations": true,
-      "hasMenu": new URL('/#menu', url).toString(),
+      "hasMenu": new URL('/#menu', siteUrl).toString(),
       "sameAs": [
         "https://facebook.com/turestaurante",
         "https://instagram.com/turestaurante",
