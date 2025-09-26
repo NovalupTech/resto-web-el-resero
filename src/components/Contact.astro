@@ -1,0 +1,319 @@
+---
+const instagramUrl = import.meta.env.PUBLIC_INSTAGRAM_URL;
+const facebookUrl = import.meta.env.PUBLIC_FACEBOOK_URL;
+const twitterUrl = import.meta.env.PUBLIC_TWITTER_URL;
+const mapUrl = import.meta.env.PUBLIC_MAP_URL;
+const address = import.meta.env.PUBLIC_ADDRESS;
+const phone = import.meta.env.PUBLIC_PHONE;
+const email = import.meta.env.PUBLIC_EMAIL;
+// Contact section component
+---
+
+<section id="contact" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-secondary-800 mb-4">
+        Contacto y Ubicación
+      </h2>
+      <p class="text-xl text-secondary-600 max-w-2xl mx-auto">
+        Visítanos o contáctanos para hacer tu reserva
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+      
+      <!-- Contact Information -->
+      <div>
+        <div class="space-y-8">
+          
+          <!-- Address -->
+          <div class="flex items-start space-x-4">
+            <div class="bg-primary-100 p-4 rounded-full flex-shrink-0">
+              <i class="fas fa-map-marker-alt text-2xl text-primary-500"></i>
+            </div>
+            <div>
+              <h3 class="font-display text-2xl font-semibold text-secondary-800 mb-2">Dirección</h3>
+              <p class="text-secondary-600 text-lg">
+                {
+                  address && (
+                    <p class="text-secondary-600 text-lg">
+                      {address}
+                    </p>
+                  )
+                }
+              </p>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="flex items-start space-x-4">
+            <div class="bg-primary-100 p-4 rounded-full flex-shrink-0">
+              <i class="fas fa-phone text-2xl text-primary-500"></i>
+            </div>
+            <div>
+              <h3 class="font-display text-2xl font-semibold text-secondary-800 mb-2">Teléfono</h3>
+              <p class="text-secondary-600 text-lg">
+                <a href="tel:+1234567890" class="hover:text-primary-500 transition-colors duration-300">
+                  {
+                    phone && (
+                      <p class="text-secondary-600 text-lg">
+                        {phone}
+                      </p>
+                    )
+                  }
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Email -->
+           {
+            email && (
+            <div class="flex items-start space-x-4">
+              <div class="bg-primary-100 p-4 rounded-full flex-shrink-0">
+                <i class="fas fa-envelope text-2xl text-primary-500"></i>
+              </div>
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-800 mb-2">Email</h3>
+                <p class="text-secondary-600 text-lg">
+                  <a href="mailto:info@turestaurante.com" class="hover:text-primary-500 transition-colors duration-300">
+                    {
+                        <p class="text-secondary-600 text-lg">
+                          {email}
+                        </p>
+                    }
+                  </a>
+                </p>
+              </div>
+            </div>
+            )
+          }
+
+          <!-- Social Media -->
+          <div class="flex items-start space-x-4">
+            <div class="bg-primary-100 p-4 rounded-full flex-shrink-0">
+              <i class="fas fa-share-alt text-2xl text-primary-500"></i>
+            </div>
+            <div>
+              <h3 class="font-display text-2xl font-semibold text-secondary-800 mb-4">Redes Sociales</h3>
+              <div class="flex space-x-4">
+                {
+                  facebookUrl && (
+                    <a 
+                      href={facebookUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="bg-blue-500 hover:bg-blue-600 text-white w-12 h-12 rounded-full transition-colors duration-300 flex items-center justify-center"
+                    >
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                  )
+                }
+                {
+                  instagramUrl && (
+                    <a 
+                      href={instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white w-12 h-12 rounded-full transition-all duration-300 flex items-center justify-center"
+                    >
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                  )
+                }
+                {
+                  twitterUrl && (
+                    <a 
+                      href={twitterUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="bg-sky-500 hover:bg-sky-600 text-white w-12 h-12 rounded-full transition-colors duration-300 flex items-center justify-center"
+                    >
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                  )
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reservation Form -->
+        <div class="mt-12 bg-secondary-50 rounded-2xl p-8">
+          <h3 class="font-display text-3xl font-bold text-secondary-800 mb-6 text-center">
+            Reserva tu Mesa
+          </h3>
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-secondary-700 font-medium mb-2">Nombre</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name"
+                  class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                  placeholder="Tu nombre completo"
+                  required
+                />
+              </div>
+              <div>
+                <label for="phone" class="block text-secondary-700 font-medium mb-2">Teléfono</label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone"
+                  class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                  placeholder="Tu número de teléfono"
+                  required
+                />
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="date" class="block text-secondary-700 font-medium mb-2">Fecha</label>
+                <input 
+                  type="date" 
+                  id="date" 
+                  name="date"
+                  class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                  required
+                />
+              </div>
+              <div>
+                <label for="time" class="block text-secondary-700 font-medium mb-2">Hora</label>
+                <select 
+                  id="time" 
+                  name="time"
+                  class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                  required
+                >
+                  <option value="">Selecciona una hora</option>
+                  <option value="12:00">12:00 PM</option>
+                  <option value="12:30">12:30 PM</option>
+                  <option value="13:00">1:00 PM</option>
+                  <option value="13:30">1:30 PM</option>
+                  <option value="14:00">2:00 PM</option>
+                  <option value="14:30">2:30 PM</option>
+                  <option value="18:00">6:00 PM</option>
+                  <option value="18:30">6:30 PM</option>
+                  <option value="19:00">7:00 PM</option>
+                  <option value="19:30">7:30 PM</option>
+                  <option value="20:00">8:00 PM</option>
+                  <option value="20:30">8:30 PM</option>
+                  <option value="21:00">9:00 PM</option>
+                  <option value="21:30">9:30 PM</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="guests" class="block text-secondary-700 font-medium mb-2">Número de Personas</label>
+              <select 
+                id="guests" 
+                name="guests"
+                class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                required
+              >
+                <option value="">Selecciona el número de personas</option>
+                <option value="1">1 persona</option>
+                <option value="2">2 personas</option>
+                <option value="3">3 personas</option>
+                <option value="4">4 personas</option>
+                <option value="5">5 personas</option>
+                <option value="6">6 personas</option>
+                <option value="7">7 personas</option>
+                <option value="8">8 personas</option>
+                <option value="8+">Más de 8 personas</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-secondary-700 font-medium mb-2">Comentarios Especiales</label>
+              <textarea 
+                id="message" 
+                name="message"
+                rows="4"
+                class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                placeholder="Solicitudes especiales, alergias, celebraciones..."
+              ></textarea>
+            </div>
+
+            <button 
+              type="submit"
+              class="w-full bg-primary-500 hover:bg-primary-600 text-white py-4 px-6 rounded-lg text-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg"
+            >
+              Confirmar Reserva
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div>
+        <div class="bg-secondary-100 rounded-2xl overflow-hidden shadow-lg h-full min-h-[600px] relative">
+          <!-- Google Maps Embed -->
+          <iframe
+            src={mapUrl}
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="absolute inset-0"
+          ></iframe>
+          
+          <!-- Map Overlay with Info -->
+          <div class="absolute top-4 left-4 bg-white rounded-lg shadow-lg p-4 max-w-xs">
+            <h4 class="font-display text-lg font-bold text-secondary-800 mb-2">Tu Restaurante</h4>
+            <p class="text-secondary-600 text-sm mb-2">Av. Principal 123</p>
+            <div class="flex items-center text-primary-500">
+              <i class="fas fa-star text-sm mr-1"></i>
+              <span class="text-sm font-medium">4.8 (250+ reseñas)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Directions Button -->
+        <!-- <div class="mt-6 text-center">
+          <a 
+            href="https://www.google.com/maps/dir//Av.+Principal+123"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg"
+          >
+            <i class="fas fa-directions mr-2"></i>
+            Cómo Llegar
+          </a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Form submission handling
+  document.addEventListener('DOMContentLoaded', function() {
+    const reservationForm = document.querySelector('#contact form') as HTMLFormElement;
+    
+    if (reservationForm) {
+      reservationForm.addEventListener('submit', function(e: Event) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(this as unknown as HTMLFormElement);
+        const data = Object.fromEntries(formData);
+        
+        // Here you would typically send the data to your backend
+        console.log('Reservation data:', data);
+        
+        // Show success message (you can customize this)
+        alert('¡Gracias por tu reserva! Te contactaremos pronto para confirmar.');
+        
+        // Reset form
+        (this as unknown as HTMLFormElement).reset();
+      });
+    }
+  });
+</script>

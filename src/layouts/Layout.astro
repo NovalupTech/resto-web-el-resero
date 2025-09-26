@@ -1,0 +1,130 @@
+---
+import WhatsappButton from '../components/ui/WhatsappButton.astro';
+import InstagramButton from '../components/ui/InstagramButton.astro';
+const name = import.meta.env.PUBLIC_NAME;
+
+export interface Props {
+  title: string;
+}
+
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Basic SEO -->
+    <title>{name}</title>
+    <meta name="description" content="Restaurante de alta calidad con los mejores sabores. Experiencia culinaria extraordinaria con ambiente elegante y acogedor. Reserva tu mesa ahora." />
+    <meta name="keywords" content="restaurante, comida gourmet, reservas, gastronomía, menú, cena, almuerzo, cocina, chef" />
+    <meta name="author" content={name || "Tu Restaurante"} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={Astro.url} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/logo-placeholder.svg" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={name} />
+    <meta property="og:description" content="Restaurante de alta calidad con los mejores sabores. Experiencia culinaria extraordinaria con ambiente elegante y acogedor. Reserva tu mesa ahora." />
+    <meta property="og:image" content={new URL('/og-image.jpg', Astro.url)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${name || "Tu Restaurante"} - Experiencia Culinaria Extraordinaria`} />
+    <meta property="og:site_name" content={name || "Tu Restaurante"} />
+    <meta property="og:locale" content="es_ES" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={Astro.url} />
+    <meta name="twitter:title" content={name} />
+    <meta name="twitter:description" content="Restaurante de alta calidad con los mejores sabores. Experiencia culinaria extraordinaria con ambiente elegante y acogedor." />
+    <meta name="twitter:image" content={new URL('/og-image.jpg', Astro.url)} />
+    <meta name="twitter:image:alt" content={`${name || "Tu Restaurante"} - Experiencia Culinaria Extraordinaria`} />
+    <meta name="twitter:site" content="@tu_restaurante" />
+    <meta name="twitter:creator" content="@tu_restaurante" />
+    
+    <!-- WhatsApp / Telegram -->
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta name="theme-color" content="#dc2626" />
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": name || "Tu Restaurante",
+      "description": "Restaurante de alta calidad con los mejores sabores",
+      "url": Astro.url.toString(),
+      "logo": new URL('/logo-placeholder.svg', Astro.url).toString(),
+      "image": new URL('/og-image.jpg', Astro.url).toString(),
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Principal 123",
+        "addressLocality": "Centro Histórico",
+        "addressRegion": "Estado",
+        "postalCode": "12345",
+        "addressCountry": "MX"
+      },
+      "telephone": "+1234567890",
+      "email": "info@turestaurante.com",
+      "openingHours": [
+        "Mo-Fr 12:00-15:00",
+        "Mo-Fr 18:00-23:00",
+        "Sa-Su 10:00-15:00",
+        "Sa-Su 18:00-24:00"
+      ],
+      "servesCuisine": "International",
+      "priceRange": "$$",
+      "acceptsReservations": true,
+      "hasMenu": new URL('/#menu', Astro.url).toString(),
+      "sameAs": [
+        "https://facebook.com/turestaurante",
+        "https://instagram.com/turestaurante",
+        "https://twitter.com/turestaurante"
+      ]
+    })} />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body class="font-body text-secondary-800 bg-white">
+    <slot />
+    
+    <!-- Floating Buttons -->
+    <WhatsappButton />
+    <InstagramButton />
+
+    <script>
+      // Smooth scroll for navigation links
+      document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('a[href^="#"]') as NodeListOf<HTMLAnchorElement>;
+        
+        for (const link of links) {
+          link.addEventListener('click', function(e: Event) {
+            e.preventDefault();
+            const href = (this as HTMLAnchorElement).getAttribute('href');
+            const offsetTop = (document.querySelector(href as string) as HTMLElement)?.offsetTop;
+            if (offsetTop) {
+              scroll({
+                top: offsetTop - 80,
+                behavior: "smooth"
+              });
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

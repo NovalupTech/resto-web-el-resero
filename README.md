@@ -1,43 +1,140 @@
-# Astro Starter Kit: Minimal
+# Template de Restaurante - Astro + TailwindCSS
 
-```sh
-pnpm create astro@latest -- --template minimal
+Un template moderno y completamente responsivo para páginas web de restaurantes, construido con Astro y TailwindCSS.
+
+## ✨ Características
+
+- **Diseño Moderno**: Interfaz elegante y profesional
+- **Completamente Responsivo**: Optimizado para todos los dispositivos
+- **Secciones Completas**:
+  - Hero con imagen de fondo
+  - Amenidades del restaurante
+  - Menú interactivo con categorías
+  - Galería de imágenes con lightbox
+  - Contacto con mapa de Google Maps
+  - Formulario de reservas
+- **Botones Flotantes**: WhatsApp e Instagram
+- **Navegación Suave**: Scroll suave entre secciones
+- **SEO Optimizado**: Meta tags y estructura semántica
+
+## 🚀 Instalación y Uso
+
+### Prerrequisitos
+- Node.js 18+ 
+- pnpm (recomendado) o npm
+
+### Instalación
+```bash
+# Instalar dependencias
+pnpm install
+
+# Iniciar servidor de desarrollo
+pnpm dev
+
+# Construir para producción
+pnpm build
+
+# Vista previa de la build
+pnpm preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🎨 Personalización
 
-## 🚀 Project Structure
+### 1. Logo y Branding
+- Reemplaza `/public/logo-placeholder.svg` con tu logo
+- Actualiza el nombre del restaurante en `src/components/Header.astro`
+- Modifica los colores en `tailwind.config.mjs`
+- **IMPORTANTE**: Crea `/public/og-image.jpg` (1200x630px) para redes sociales
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+### 2. Variables de Entorno
+Copia `env.example` a `.env` y personaliza:
+```bash
+cp env.example .env
 ```
+- Actualiza nombre, teléfono, redes sociales
+- Configura URL del mapa de Google Maps
+- Define URL del sitio web para SEO
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### 2. Contenido
+- **Hero**: Edita `src/components/Hero.astro` para cambiar el título y descripción
+- **Menú**: Actualiza los platos en `src/components/Menu.astro`
+- **Contacto**: Modifica la información de contacto en `src/components/Contact.astro`
+- **Amenidades**: Personaliza las amenidades en `src/components/Amenities.astro`
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### 3. Imágenes
+- Reemplaza las URLs de Unsplash con tus propias imágenes
+- Añade imágenes a `/public/` y actualiza las referencias
 
-Any static assets, like images, can be placed in the `public/` directory.
+### 4. Mapa y Ubicación
+- En `src/components/Contact.astro`, actualiza:
+  - El iframe del mapa de Google Maps con tu ubicación
+  - La dirección del restaurante
+  - Los enlaces de "Cómo llegar"
 
-## 🧞 Commands
+### 5. Redes Sociales
+- Actualiza los enlaces de redes sociales en:
+  - `src/layouts/Layout.astro` (botones flotantes)
+  - `src/components/Contact.astro`
+  - `src/components/Footer.astro`
 
-All commands are run from the root of the project, from a terminal:
+### 6. Información de Contacto
+- Teléfono: Actualiza `+1234567890` con tu número
+- Email: Cambia `info@turestaurante.com`
+- Horarios: Modifica en `src/components/Amenities.astro` y `src/components/Footer.astro`
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## 📱 QR para Menú
 
-## 👀 Want to learn more?
+El template incluye una sección para código QR que apunte al menú. Para implementarlo:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Genera un QR que apunte a `tu-dominio.com/#menu`
+2. Reemplaza el placeholder en `src/components/Menu.astro`
+3. O usa servicios como QR-Code-Generator.com
+
+## 🎯 Funcionalidades Interactivas
+
+### Menú por Categorías
+El menú se organiza en pestañas (Entradas, Principales, Postres, Bebidas) con JavaScript vanilla.
+
+### Galería con Lightbox
+La galería incluye un lightbox modal con navegación por teclado.
+
+### Formulario de Reservas
+Formulario funcional que captura los datos (requiere backend para procesar).
+
+### Navegación Móvil
+Menú hamburguesa completamente funcional para dispositivos móviles.
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Astro**: Framework web moderno
+- **TailwindCSS**: Framework de CSS utilitario
+- **Font Awesome**: Iconos
+- **Google Fonts**: Tipografías (Playfair Display + Inter)
+- **Unsplash**: Imágenes de ejemplo (reemplázalas con las tuyas)
+
+## 📋 Comandos Disponibles
+
+| Comando | Acción |
+|---------|--------|
+| `pnpm dev` | Inicia servidor de desarrollo |
+| `pnpm build` | Construye para producción |
+| `pnpm preview` | Vista previa de la build |
+
+## 🌐 Deployment
+
+Este template puede desplegarse en cualquier servicio que soporte sitios estáticos:
+
+- **Vercel**: `vercel --prod`
+- **Netlify**: Conecta tu repositorio
+- **GitHub Pages**: Usa GitHub Actions
+- **Cloudflare Pages**: Conecta tu repositorio
+
+## 📞 Soporte
+
+Para dudas sobre la personalización del template, revisa la documentación de:
+- [Astro](https://docs.astro.build)
+- [TailwindCSS](https://tailwindcss.com/docs)
+
+---
+
+¡Disfruta tu nuevo sitio web de restaurante! 🍽️

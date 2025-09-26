@@ -1,0 +1,153 @@
+---
+// leer de la carpeta public/gallery
+const gallery = import.meta.env.PUBLIC_GALLERY;
+const gallery_images = gallery.split(',');
+---
+
+<section id="gallery" class="py-20 bg-secondary-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-secondary-800 mb-4">
+        Galería
+      </h2>
+      <p class="text-xl text-secondary-600 max-w-2xl mx-auto">
+        Descubre el ambiente y la experiencia que te espera en nuestro restaurante
+      </p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      {
+        gallery_images.map((image: string) => (
+          <div class="gallery-item group cursor-pointer overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <img 
+              src={image} 
+              alt="Interior del restaurante"
+              class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              data-src={image}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- View More Button -->
+    <div class="text-center">
+      <button class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg">
+        Ver Más Fotos
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal for Image Lightbox -->
+  <div id="gallery-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center p-4">
+    <div class="relative max-w-4xl max-h-full">
+      <button 
+        id="close-modal" 
+        class="absolute top-4 right-4 text-white text-3xl hover:text-primary-400 transition-colors duration-300 z-10"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+      <img 
+        id="modal-image" 
+        src="" 
+        alt="" 
+        class="max-w-full max-h-full object-contain rounded-lg"
+      />
+      <div class="absolute bottom-4 left-4 right-4 text-center">
+        <button 
+          id="prev-image" 
+          class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full mr-4 transition-all duration-300"
+        >
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button 
+          id="next-image" 
+          class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300"
+        >
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const galleryItems = document.querySelectorAll('.gallery-item img') as NodeListOf<HTMLImageElement>;
+    const modal = document.getElementById('gallery-modal') as HTMLElement | null;
+    const modalImage = document.getElementById('modal-image') as HTMLImageElement | null;
+    const closeModal = document.getElementById('close-modal') as HTMLElement | null;
+    const prevButton = document.getElementById('prev-image') as HTMLElement | null;
+    const nextButton = document.getElementById('next-image') as HTMLElement | null;
+    
+    if (!modal || !modalImage || !closeModal || !prevButton || !nextButton) {
+      return;
+    }
+    
+    let currentImageIndex = 0;
+    const images = Array.from(galleryItems).map((img: HTMLImageElement) => ({
+      src: img.getAttribute('data-src') || '',
+      alt: img.getAttribute('alt') || ''
+    }));
+
+    // Open modal when clicking on gallery item
+    galleryItems.forEach((item: HTMLImageElement, index: number) => {
+      const parentElement = item.parentElement;
+      if (parentElement) {
+        parentElement.addEventListener('click', function() {
+          currentImageIndex = index;
+          showImage(currentImageIndex);
+          modal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+    });
+
+    // Close modal
+    closeModal.addEventListener('click', closeModalFunction);
+    modal.addEventListener('click', function(e: Event) {
+      if (e.target === modal) {
+        closeModalFunction();
+      }
+    });
+
+    function closeModalFunction(): void {
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // Navigation
+    prevButton.addEventListener('click', function() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      showImage(currentImageIndex);
+    });
+
+    nextButton.addEventListener('click', function() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      showImage(currentImageIndex);
+    });
+
+    function showImage(index: number): void {
+      if (modalImage && images[index]) {
+        modalImage.src = images[index].src;
+        modalImage.alt = images[index].alt;
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e: KeyboardEvent) {
+      if (modal && !modal.classList.contains('hidden')) {
+        if (e.key === 'Escape') {
+          closeModalFunction();
+        } else if (e.key === 'ArrowLeft') {
+          prevButton.click();
+        } else if (e.key === 'ArrowRight') {
+          nextButton.click();
+        }
+      }
+    });
+  });
+</script>

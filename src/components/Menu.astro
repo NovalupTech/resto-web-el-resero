@@ -1,0 +1,272 @@
+---
+// Menu section component
+---
+
+<section id="menu" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-secondary-900 mb-4">
+        Nuestro Menú
+      </h2>
+      <p class="text-xl text-secondary-800 max-w-2xl mx-auto">
+        Descubre nuestra selección de platos preparados con los mejores ingredientes
+      </p>
+    </div>
+
+    <!-- Menu Categories -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <button class="menu-category-btn active bg-primary-500 text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-category="entradas">
+        Entradas
+      </button>
+      <button class="menu-category-btn bg-secondary-200 text-secondary-700 hover:bg-primary-500 hover:text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-category="principales">
+        Platos Principales
+      </button>
+      <button class="menu-category-btn bg-secondary-200 text-secondary-700 hover:bg-primary-500 hover:text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-category="postres">
+        Postres
+      </button>
+      <button class="menu-category-btn bg-secondary-200 text-secondary-700 hover:bg-primary-500 hover:text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-category="bebidas">
+        Bebidas
+      </button>
+    </div>
+
+    <!-- Menu Items -->
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- Entradas -->
+      <div class="menu-category active" data-category="entradas">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Bruschetta Artesanal</h3>
+                <p class="text-secondary-900">Pan tostado con tomates frescos, albahaca y mozzarella</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$12.99</span>
+            </div>
+          </div>
+
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Carpaccio de Res</h3>
+                <p class="text-secondary-800">Finas láminas de res con rúcula, parmesano y aceite de trufa</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$18.99</span>
+            </div>
+          </div>
+
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Ceviche Peruano</h3>
+                <p class="text-secondary-800">Pescado fresco marinado en limón con cebolla morada y cilantro</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$16.99</span>
+            </div>
+          </div>
+
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Tabla de Quesos</h3>
+                <p class="text-secondary-800">Selección de quesos artesanales con frutos secos y mermelada</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$22.99</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Platos Principales -->
+      <div class="menu-category hidden" data-category="principales">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Filete Wellington</h3>
+                <p class="text-secondary-800">Filete de res envuelto en hojaldre con duxelles de champiñones</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$45.99</span>
+            </div>
+          </div>
+
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Salmón a la Parrilla</h3>
+                <p class="text-secondary-800">Salmón fresco con vegetales asados y salsa de eneldo</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$32.99</span>
+            </div>
+          </div>
+
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Risotto de Mariscos</h3>
+                <p class="text-secondary-800">Cremoso risotto con langostinos, calamares y mejillones</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$28.99</span>
+            </div>
+          </div>
+
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Cordero Mediterráneo</h3>
+                <p class="text-secondary-800">Pierna de cordero con hierbas mediterráneas y papas confitadas</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$38.99</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Postres -->
+      <div class="menu-category hidden" data-category="postres">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Tiramisú Clásico</h3>
+                <p class="text-secondary-800">El postre italiano por excelencia con café y mascarpone</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$9.99</span>
+            </div>
+          </div>
+
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Cheesecake de Frutos Rojos</h3>
+                <p class="text-secondary-800">Cremoso cheesecake con compota de frutos rojos</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$8.99</span>
+            </div>
+          </div>
+
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Volcán de Chocolate</h3>
+                <p class="text-secondary-800">Bizcocho caliente con centro líquido de chocolate</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$11.99</span>
+            </div>
+          </div>
+
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Crème Brûlée</h3>
+                <p class="text-secondary-800">Crema francesa con azúcar caramelizada</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$10.99</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bebidas -->
+      <div class="menu-category hidden" data-category="bebidas">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Vino Tinto Reserva</h3>
+                <p class="text-secondary-800">Selección de vinos tintos de la casa</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$15.99</span>
+            </div>
+          </div>
+
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Mojito Clásico</h3>
+                <p class="text-secondary-800">Ron blanco, menta fresca, lima y agua con gas</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$12.99</span>
+            </div>
+          </div>
+
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Café de Especialidad</h3>
+                <p class="text-secondary-800">Granos seleccionados de origen único</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$4.99</span>
+            </div>
+          </div>
+
+          <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Agua Mineral Premium</h3>
+                <p class="text-secondary-800">Agua mineral natural importada</p>
+              </div>
+              <span class="text-primary-500 font-bold text-xl">$3.99</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QR Code Section -->
+    <div class="mt-16 text-center">
+      <div class="bg-primary-50 rounded-2xl p-8 md:p-12 max-w-2xl mx-auto">
+        <h3 class="font-display text-3xl font-bold text-secondary-900 mb-4">
+          Escanea para ver el menú
+        </h3>
+        <p class="text-secondary-800 mb-8">
+          Accede a nuestro menú digital completo desde tu móvil
+        </p>
+        <div class="bg-white p-8 rounded-xl shadow-lg inline-block">
+          <!-- Placeholder for QR Code -->
+          <div class="w-32 h-32 bg-secondary-200 rounded-lg flex items-center justify-center">
+            <i class="fas fa-qrcode text-4xl text-secondary-500"></i>
+          </div>
+        </div>
+        <p class="text-sm text-secondary-500 mt-4">
+          Genera tu código QR personalizado aquí
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Menu category switching
+  document.addEventListener('DOMContentLoaded', function() {
+    const categoryButtons = document.querySelectorAll('.menu-category-btn');
+    const menuCategories = document.querySelectorAll('.menu-category');
+    
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', function(this: HTMLButtonElement) {
+        const targetCategory = (this as HTMLButtonElement).getAttribute('data-category');
+        
+        // Update active button
+        categoryButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-primary-500', 'text-white');
+          (btn as HTMLButtonElement).classList.add('bg-secondary-200', 'text-secondary-700');
+        });
+        (this as HTMLButtonElement).classList.add('active', 'bg-primary-500', 'text-white');
+        (this as HTMLButtonElement).classList.remove('bg-secondary-200', 'text-secondary-700');
+        
+        // Show target category
+        menuCategories.forEach(category => {
+          (category as HTMLElement).classList.add('hidden');
+          (category as HTMLElement).classList.remove('active');
+          if ((category as HTMLElement).getAttribute('data-category') === targetCategory) {
+            (category as HTMLElement).classList.remove('hidden');
+            category.classList.add('active');
+          } else {
+            (category as HTMLElement).classList.add('hidden');
+            category.classList.remove('active');
+          }
+        });
+      });
+    });
+  });
+</script>
