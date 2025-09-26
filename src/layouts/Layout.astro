@@ -2,6 +2,7 @@
 import WhatsappButton from '../components/ui/WhatsappButton.astro';
 import InstagramButton from '../components/ui/InstagramButton.astro';
 const name = import.meta.env.PUBLIC_NAME;
+const logo = import.meta.env.PUBLIC_LOGO;
 
 export interface Props {
   title: string;
@@ -27,7 +28,7 @@ export interface Props {
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/logo-placeholder.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href={logo} />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -46,7 +47,7 @@ export interface Props {
     <meta name="twitter:url" content={Astro.url} />
     <meta name="twitter:title" content={name} />
     <meta name="twitter:description" content="Restaurante de alta calidad con los mejores sabores. Experiencia culinaria extraordinaria con ambiente elegante y acogedor." />
-    <meta name="twitter:image" content={new URL('/og-image.jpg', Astro.url)} />
+    <meta name="twitter:image" content={new URL(logo, Astro.url)} />
     <meta name="twitter:image:alt" content={`${name || "Tu Restaurante"} - Experiencia Culinaria Extraordinaria`} />
     <meta name="twitter:site" content="@tu_restaurante" />
     <meta name="twitter:creator" content="@tu_restaurante" />
@@ -62,8 +63,8 @@ export interface Props {
       "name": name || "Tu Restaurante",
       "description": "Restaurante de alta calidad con los mejores sabores",
       "url": Astro.url.toString(),
-      "logo": new URL('/logo-placeholder.svg', Astro.url).toString(),
-      "image": new URL('/og-image.jpg', Astro.url).toString(),
+      "logo": new URL(logo, Astro.url).toString(),
+      "image": new URL(logo, Astro.url).toString(),
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Av. Principal 123",
