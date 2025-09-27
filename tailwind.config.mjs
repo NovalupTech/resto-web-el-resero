@@ -103,13 +103,26 @@ const BLACK_COLORS = {
   900: '#0f172a',
 };
 
+const DARK_COLORS = {
+  50: '#f8fafc',
+  100: '#f1f5f9',
+  200: '#e2e8f0',
+  300: '#cbd5e1',
+  400: '#cbd5e1',
+  500: '#0f172a',
+  600: '#0f172a',
+  700: '#334155',
+  800: '#0f172a',
+  900: '#0f172a',
+};
+
 // ========================================
 // 🎯 SELECCIONA TU PALETA AQUÍ
 // ========================================
 // Cambia estas variables para cambiar toda la web:
 
-const PRIMARY_COLORS = ELEGANT_RED;     // 👈 Cambia aquí tu color principal
-const SECONDARY_COLORS = BLACK_COLORS; // 👈 Cambia aquí tu color secundario
+const PRIMARY_COLORS = DARK_COLORS;     // 👈 Cambia aquí tu color principal
+const SECONDARY_COLORS = DARK_COLORS; // 👈 Cambia aquí tu color secundario
 
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],

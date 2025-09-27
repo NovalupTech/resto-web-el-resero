@@ -6,6 +6,7 @@ const mapUrl = import.meta.env.PUBLIC_MAP_URL;
 const address = import.meta.env.PUBLIC_ADDRESS;
 const phone = import.meta.env.PUBLIC_PHONE;
 const email = import.meta.env.PUBLIC_EMAIL;
+const name = import.meta.env.PUBLIC_NAME;
 // Contact section component
 ---
 
@@ -266,12 +267,12 @@ const email = import.meta.env.PUBLIC_EMAIL;
           
           <!-- Map Overlay with Info -->
           <div class="absolute top-4 left-4 bg-white rounded-lg shadow-lg p-4 max-w-xs">
-            <h4 class="font-display text-lg font-bold text-secondary-800 mb-2">Tu Restaurante</h4>
-            <p class="text-secondary-600 text-sm mb-2">Av. Principal 123</p>
-            <div class="flex items-center text-primary-500">
+            <h4 class="font-display text-lg font-bold text-secondary-800 mb-2">{name}</h4>
+            <p class="text-secondary-600 text-sm mb-2">{address}</p>
+            <!-- <div class="flex items-center text-primary-500">
               <i class="fas fa-star text-sm mr-1"></i>
               <span class="text-sm font-medium">4.8 (250+ reseñas)</span>
-            </div>
+            </div> -->
           </div>
         </div>
 
