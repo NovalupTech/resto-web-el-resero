@@ -121,7 +121,7 @@ const DARK_COLORS = {
 // ========================================
 // Cambia estas variables para cambiar toda la web:
 
-const PRIMARY_COLORS = DARK_COLORS;     // 👈 Cambia aquí tu color principal
+const PRIMARY_COLORS = WARM_ORANGE;     // 👈 Cambia aquí tu color principal
 const SECONDARY_COLORS = DARK_COLORS; // 👈 Cambia aquí tu color secundario
 
 export default {

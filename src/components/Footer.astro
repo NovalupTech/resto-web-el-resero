@@ -2,6 +2,7 @@
 const instagramUrl = import.meta.env.PUBLIC_INSTAGRAM_URL;
 const facebookUrl = import.meta.env.PUBLIC_FACEBOOK_URL;
 const twitterUrl = import.meta.env.PUBLIC_TWITTER_URL;
+const tiktokUrl = import.meta.env.PUBLIC_TIKTOK_URL;
 const name = import.meta.env.PUBLIC_NAME;
 const address = import.meta.env.PUBLIC_ADDRESS;
 const phone = import.meta.env.PUBLIC_PHONE;
@@ -64,6 +65,18 @@ const weekend_hours_2 = import.meta.env.PUBLIC_WEEKEND_HOURS_2;
                 class="bg-secondary-700 hover:bg-primary-500 w-12 h-12 rounded-full transition-colors duration-300 flex items-center justify-center"
               >
                 <i class="fab fa-twitter"></i>
+              </a>
+            )
+          }
+          {
+            tiktokUrl && (
+              <a 
+                href={tiktokUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-secondary-700 hover:bg-primary-500 w-12 h-12 rounded-full transition-colors duration-300 flex items-center justify-center"
+              >
+                <i class="fab fa-tiktok"></i>
               </a>
             )
           }

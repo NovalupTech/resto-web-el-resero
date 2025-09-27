@@ -7,6 +7,7 @@ const address = import.meta.env.PUBLIC_ADDRESS;
 const phone = import.meta.env.PUBLIC_PHONE;
 const email = import.meta.env.PUBLIC_EMAIL;
 const name = import.meta.env.PUBLIC_NAME;
+const tiktokUrl = import.meta.env.PUBLIC_TIKTOK_URL;
 // Contact section component
 ---
 
@@ -131,6 +132,18 @@ const name = import.meta.env.PUBLIC_NAME;
                       class="bg-sky-500 hover:bg-sky-600 text-white w-12 h-12 rounded-full transition-colors duration-300 flex items-center justify-center"
                     >
                       <i class="fab fa-twitter"></i>
+                    </a>
+                  )
+                }
+                {
+                  tiktokUrl && (
+                    <a 
+                      href={tiktokUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="bg-black hover:bg-black text-white w-12 h-12 rounded-full transition-colors duration-300 flex items-center justify-center"
+                    >
+                      <i class="fab fa-tiktok"></i>
                     </a>
                   )
                 }

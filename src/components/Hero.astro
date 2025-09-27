@@ -3,17 +3,20 @@
 const title = import.meta.env.PUBLIC_TITLE;
 const description = import.meta.env.PUBLIC_DESCRIPTION;
 const subtitle = import.meta.env.PUBLIC_SUBTITLE;
-const hero_image = import.meta.env.PUBLIC_HERO_IMAGE;
+const hero_video = import.meta.env.PUBLIC_HERO_VIDEO;
 ---
 
-<section id="home" class="relative min-h-[1000px] flex items-center justify-center overflow-hidden">
+<section id="home" class="relative min-h-[750px] flex items-center justify-center overflow-hidden">
   <!-- Background Image -->
   <div class="absolute inset-0 z-0">
     {
-      hero_image ? (
-        <img 
-          src={hero_image} 
+      hero_video ? (
+        <video 
+          src={hero_video} 
           class="w-full h-full object-cover"
+          autoplay
+          muted
+          loop
         />
       ) : (
         <img 
