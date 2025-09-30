@@ -6,7 +6,7 @@ const subtitle = import.meta.env.PUBLIC_SUBTITLE;
 const hero_video = import.meta.env.PUBLIC_HERO_VIDEO;
 ---
 
-<section id="home" class="relative min-h-[750px] flex items-center justify-center overflow-hidden">
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
   <!-- Background Image -->
   <div class="absolute inset-0 z-0">
     {
@@ -31,7 +31,7 @@ const hero_video = import.meta.env.PUBLIC_HERO_VIDEO;
       alt="Interior del restaurante"
       class="w-full h-full object-cover"
     />
-    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute inset-0 bg-black/20"></div>
   </div>
 
   <!-- Content -->
@@ -62,12 +62,12 @@ const hero_video = import.meta.env.PUBLIC_HERO_VIDEO;
       >
         Ver Nuestro Menú
       </a>
-      <a 
+      <!-- <a 
         href="#contact" 
         class="border-2 border-white text-white hover:bg-white hover:text-secondary-800 px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105"
       >
         Reservar Mesa
-      </a>
+      </a> -->
     </div>
   </div>
 

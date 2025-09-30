@@ -116,12 +116,26 @@ const DARK_COLORS = {
   900: '#0f172a',
 };
 
+// color amarillo
+const YELLOW_COLORS = {
+  50: '#fef7ee',
+  100: '#fdecd3',
+  200: '#fbd4a5',
+  300: '#f7b56d',
+  400: '#f7b56d',
+  500: '#f7b56d',
+  600: '#f7b56d',
+  700: '#0f172a',
+  800: '#0f172a',
+  900: '#0f172a',
+}
+
 // ========================================
 // 🎯 SELECCIONA TU PALETA AQUÍ
 // ========================================
 // Cambia estas variables para cambiar toda la web:
 
-const PRIMARY_COLORS = WARM_ORANGE;     // 👈 Cambia aquí tu color principal
+const PRIMARY_COLORS = YELLOW_COLORS;     // 👈 Cambia aquí tu color principal
 const SECONDARY_COLORS = DARK_COLORS; // 👈 Cambia aquí tu color secundario
 
 export default {
