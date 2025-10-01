@@ -1,6 +1,7 @@
 ---
 // Hero section component
 const title = import.meta.env.PUBLIC_TITLE;
+const title_image = import.meta.env.PUBLIC_TITLE_IMAGE;
 const description = import.meta.env.PUBLIC_DESCRIPTION;
 const subtitle = import.meta.env.PUBLIC_SUBTITLE;
 const hero_video = import.meta.env.PUBLIC_HERO_VIDEO;
@@ -36,15 +37,20 @@ const hero_video = import.meta.env.PUBLIC_HERO_VIDEO;
 
   <!-- Content -->
   <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight resero">
-      {title}
-      {
-        subtitle && (
-          <span class="text-primary-400 block">{subtitle}</span>
-        )
+    {
+      title_image ? (
+        <img src={title_image} alt="Title Image" class="w-full h-full object-cover" />
+      ) : (
+        <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight resero">
+          {title}
+          {
+            subtitle && (
+              <span class="text-primary-400 block">{subtitle}</span>
+            )
       }
-    </h1>
-    
+        </h1>
+      )
+    }
     <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed">
       {
         description && (
