@@ -36,7 +36,7 @@ const hero_video = import.meta.env.PUBLIC_HERO_VIDEO;
 
   <!-- Content -->
   <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight resero">
       {title}
       {
         subtitle && (
@@ -78,3 +78,15 @@ const hero_video = import.meta.env.PUBLIC_HERO_VIDEO;
     </a>
   </div>
 </section>
+
+
+<!-- Custom Styles -->
+<style>
+  .resero {
+    font-family: 'Baloo 2', sans-serif !important;
+    font-size: 80px !important;
+    color: #fbb03b !important; /* Amarillo aproximado */
+    margin: 0 !important;
+    letter-spacing: -5px; /* Ajuste de espacio entre letras */
+  }
+</style>
