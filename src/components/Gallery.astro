@@ -33,7 +33,10 @@ const gallery_images = gallery.split(',');
 
     <!-- View More Button -->
     <div class="text-center">
-      <button class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg">
+      <button 
+        id="view-more-btn" 
+        class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg"
+      >
         Ver Más Fotos
       </button>
     </div>
@@ -80,8 +83,9 @@ const gallery_images = gallery.split(',');
     const closeModal = document.getElementById('close-modal') as HTMLElement | null;
     const prevButton = document.getElementById('prev-image') as HTMLElement | null;
     const nextButton = document.getElementById('next-image') as HTMLElement | null;
+    const viewMoreBtn = document.getElementById('view-more-btn') as HTMLElement | null;
     
-    if (!modal || !modalImage || !closeModal || !prevButton || !nextButton) {
+    if (!modal || !modalImage || !closeModal || !prevButton || !nextButton || !viewMoreBtn) {
       return;
     }
     
@@ -102,6 +106,14 @@ const gallery_images = gallery.split(',');
           document.body.style.overflow = 'hidden';
         });
       }
+    });
+
+    // Open modal when clicking "Ver Más Fotos" button
+    viewMoreBtn.addEventListener('click', function() {
+      currentImageIndex = 0; // Start with the first image
+      showImage(currentImageIndex);
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
     });
 
     // Close modal

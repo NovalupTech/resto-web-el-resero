@@ -1,0 +1,8 @@
+---
+const { name, id, active } = Astro.props;
+---
+
+
+<button class={`menu-category-btn ${active ? 'active bg-primary-500 text-white' : 'bg-secondary-200 text-secondary-700 hover:bg-primary-500 hover:text-white'} px-6 py-3 rounded-full font-medium transition-all duration-300`} data-category={id}>
+    {name}
+</button>

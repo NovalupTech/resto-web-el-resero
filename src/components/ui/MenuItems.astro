@@ -1,0 +1,14 @@
+---
+const { name, description, price } = Astro.props;
+---
+
+
+<div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+    <div class="flex justify-between items-start mb-4">
+      <div>
+        <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">{name}</h3>
+        <p class="text-secondary-800">{description}</p>
+      </div>
+      <span class="text-primary-500 font-bold text-xl">${price}</span>
+    </div>
+  </div>

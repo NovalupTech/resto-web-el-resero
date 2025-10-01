@@ -4,6 +4,12 @@ import InstagramButton from '../components/ui/InstagramButton.astro';
 const name = import.meta.env.PUBLIC_NAME;
 const logo = import.meta.env.PUBLIC_LOGO;
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || Astro.url.origin;
+const address = import.meta.env.PUBLIC_ADDRESS;
+const phone = import.meta.env.PUBLIC_PHONE;
+const facebookUrl = import.meta.env.PUBLIC_FACEBOOK_URL;
+const instagramUrl = import.meta.env.PUBLIC_INSTAGRAM_URL;
+const twitterUrl = import.meta.env.PUBLIC_TWITTER_URL;
+const tiktokUrl = import.meta.env.PUBLIC_TIKTOK_URL;
 
 export interface Props {
   title: string;
@@ -21,7 +27,7 @@ export interface Props {
     <!-- Basic SEO -->
     <title>{name}</title>
     <meta name="description" content="Restaurante de alta calidad con los mejores sabores. Experiencia culinaria extraordinaria con ambiente elegante y acogedor. Reserva tu mesa ahora." />
-    <meta name="keywords" content="restaurante, comida gourmet, reservas, gastronomía, menú, cena, almuerzo, cocina, chef" />
+    <meta name="keywords" content="restaurante, comida gourmet, gastronomía, menú, cena, almuerzo, cocina, chef, Avellaneda, Gerli, Zona Sur, Lanus, parrilla, asado, chorizo, morcilla, provoleta, chinchulín, riñón, molleja, pollo, cerdo, matambre, pizza, pizza especial, matambrito, salsa criolla, salsa provenzal, bebida, frita, ensalada, postre" />
     <meta name="author" content={name || "Tu Restaurante"} />
     
     <!-- Canonical URL -->
@@ -50,8 +56,8 @@ export interface Props {
     <meta name="twitter:description" content="Restaurante de alta calidad con los mejores sabores. Experiencia culinaria extraordinaria con ambiente elegante y acogedor." />
     <meta name="twitter:image" content={new URL('/og-image.png', siteUrl)} />
     <meta name="twitter:image:alt" content={`${name || "Tu Restaurante"} - Experiencia Culinaria Extraordinaria`} />
-    <meta name="twitter:site" content="@tu_restaurante" />
-    <meta name="twitter:creator" content="@tu_restaurante" />
+    <meta name="twitter:site" content={twitterUrl} />
+    <meta name="twitter:creator" content={twitterUrl} />
     
     <!-- WhatsApp / Telegram -->
     <meta property="og:image:type" content="image/png" />
@@ -68,14 +74,13 @@ export interface Props {
       "image": new URL('/og-image.png', siteUrl).toString(),
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Av. Principal 123",
-        "addressLocality": "Centro Histórico",
-        "addressRegion": "Estado",
-        "postalCode": "12345",
-        "addressCountry": "MX"
+        "streetAddress": {address},
+        "addressLocality": "Avellaneda",
+        "addressRegion": "Buenos Aires",
+        "postalCode": "1876",
+        "addressCountry": "AR"
       },
-      "telephone": "+1234567890",
-      "email": "info@turestaurante.com",
+      "telephone": {phone},
       "openingHours": [
         "Mo-Fr 12:00-15:00",
         "Mo-Fr 18:00-23:00",
@@ -87,9 +92,10 @@ export interface Props {
       "acceptsReservations": true,
       "hasMenu": new URL('/#menu', siteUrl).toString(),
       "sameAs": [
-        "https://facebook.com/turestaurante",
-        "https://instagram.com/turestaurante",
-        "https://twitter.com/turestaurante"
+        {facebookUrl},
+        {instagramUrl},
+        {twitterUrl},
+        {tiktokUrl}
       ]
     })} />
     

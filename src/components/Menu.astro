@@ -1,4 +1,7 @@
 ---
+import { menu_buttons } from "../utils/const";
+import MenuButton from "./ui/MenuButton.astro";
+
 // Menu section component
 ---
 
@@ -15,33 +18,11 @@
 
     <!-- Menu Categories -->
     <div class="flex flex-wrap justify-center gap-4 mb-12">
-      <button class="menu-category-btn active bg-primary-500 text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-category="parrilla">
-        🥩 Parrilla
-      </button>
-      <button class="menu-category-btn bg-secondary-200 text-secondary-700 hover:bg-primary-500 hover:text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-category="parrilladas">
-        🔥 Parrilladas
-      </button>
-      <button class="menu-category-btn bg-secondary-200 text-secondary-700 hover:bg-primary-500 hover:text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-category="empanadas">
-        🥟 Empanadas y Sándwiches
-      </button>
-      <button class="menu-category-btn bg-secondary-200 text-secondary-700 hover:bg-primary-500 hover:text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-category="ensaladas">
-        🥗 Ensaladas
-      </button>
-      <button class="menu-category-btn bg-secondary-200 text-secondary-700 hover:bg-primary-500 hover:text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-category="postres">
-        🍨 Postres
-      </button>
-      <button class="menu-category-btn bg-secondary-200 text-secondary-700 hover:bg-primary-500 hover:text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-category="bebidas">
-        🥤 Bebidas
-      </button>
-      <button class="menu-category-btn bg-secondary-200 text-secondary-700 hover:bg-primary-500 hover:text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-category="vinos-tintos">
-        🍷 Vinos Tintos
-      </button>
-      <button class="menu-category-btn bg-secondary-200 text-secondary-700 hover:bg-primary-500 hover:text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-category="vinos-blancos">
-        🍾 Vinos Blancos
-      </button>
-      <button class="menu-category-btn bg-secondary-200 text-secondary-700 hover:bg-primary-500 hover:text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-category="promociones">
-        🎯 Promociones
-      </button>
+      {
+        menu_buttons.map(({name, id, active}) => (
+          <MenuButton name={name} id={id} active={active} />
+        ))
+      }
     </div>
 
     <!-- Menu Items -->
@@ -386,6 +367,7 @@
               <div>
                 <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Mini Parrillada (El Porve)</h3>
                 <p class="text-secondary-800">Para 2 personas</p>
+                <p class="text-secondary-800">1 Chorizo, 1 Morcilla, 1 Chinchulín, Riñón, Asado y Pollo</p>
               </div>
               <span class="text-primary-500 font-bold text-xl">$32.000</span>
             </div>
@@ -396,6 +378,7 @@
               <div>
                 <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Tradicional (El Grana)</h3>
                 <p class="text-secondary-800">Para 3 a 4 personas</p>
+                <p class="text-secondary-800">1 Chorizo, 1 Morcilla, 1 Chinchulín, Riñón, Asado y Pollo</p>
               </div>
               <span class="text-primary-500 font-bold text-xl">$55.000</span>
             </div>
@@ -406,6 +389,7 @@
               <div>
                 <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Especial (El Diablo)</h3>
                 <p class="text-secondary-800">Para 3 a 4 personas</p>
+                <p class="text-secondary-800">1 Chorizo, 1 Morcilla, Molleja, Cerdo, Chinchulín, Riñón, 1 Provoleta, Asado y Pollo</p>
               </div>
               <span class="text-primary-500 font-bold text-xl">$75.000</span>
             </div>
@@ -416,6 +400,7 @@
               <div>
                 <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Super Tony (Xeneize)</h3>
                 <p class="text-secondary-800">Para 2 personas. Incluye 1 bebida, 1 porción de fritas, 1 ensalada y 2 postres</p>
+                <p class="text-secondary-800">1 Chorizo, 1 Morcilla, Riñón, Molleja, Asado, Pollo, Cerdo, 1 Provoleta, 1 Bebida a elección, 1 Porción de Fritas, 1 Ensalada a elección y 2 Postres a elección</p>
               </div>
               <span class="text-primary-500 font-bold text-xl">$65.000</span>
             </div>
@@ -426,6 +411,7 @@
               <div>
                 <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Tradicional (La Acadé)</h3>
                 <p class="text-secondary-800">Para 5 o 6 personas</p>
+                <p class="text-secondary-800">2 Chorizos, 2 Morcillas, Riñón, Chinchulín, Asado y Pollo</p>
               </div>
               <span class="text-primary-500 font-bold text-xl">$89.000</span>
             </div>
@@ -436,6 +422,7 @@
               <div>
                 <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Especial (El Millo)</h3>
                 <p class="text-secondary-800">Para 5 o 6 personas</p>
+                <p class="text-secondary-800">2 Chorizos, 2 Morcillas, Riñón, Chinchulín, Asado, Pollo, Molleja y 2 Provoletas</p>
               </div>
               <span class="text-primary-500 font-bold text-xl">$118.000</span>
             </div>
@@ -445,7 +432,8 @@
             <div class="flex justify-between items-start mb-4">
               <div>
                 <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Super Norma (El Arse)</h3>
-                <p class="text-secondary-800">Para 4 personas. Incluye 2 bebidas, 2 fritas, 2 ensaladas y 4 postres</p>
+                <p class="text-secondary-800">Para 4 personas.</p>
+                <p class="text-secondary-800">2 Chorizos, 1 Morcilla, Riñón, Chinchulín, Molleja, Asado, Pollo, Cerdo, 2 Provoletas, 2 Bebidas a elección, 2 Porciones de Fritas, una Ensalada a elección y 4 Postres a elección</p>
               </div>
               <span class="text-primary-500 font-bold text-xl">$125.000</span>
             </div>
@@ -456,6 +444,7 @@
               <div>
                 <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Tradicional (El Cuervo)</h3>
                 <p class="text-secondary-800">Para 7 a 8 personas</p>
+                <p class="text-secondary-800">3 Chorizos, 3 Morcillas, Riñón, Chinchulín, Asado y Pollo</p>
               </div>
               <span class="text-primary-500 font-bold text-xl">$125.000</span>
             </div>
@@ -466,6 +455,7 @@
               <div>
                 <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Especial (El Taladro)</h3>
                 <p class="text-secondary-800">Para 7 a 8 personas</p>
+                <p class="text-secondary-800">3 Chorizos, 3 Morcillas, Riñón, Chinchulín, Asado, Molleja, Pollo, Cerdo y 3 Provoletas</p>
               </div>
               <span class="text-primary-500 font-bold text-xl">$160.000</span>
             </div>
@@ -474,8 +464,9 @@
           <div class="bg-secondary-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
             <div class="flex justify-between items-start mb-4">
               <div>
-                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Super Nacho (El Globo)</h3>
-                <p class="text-secondary-800">Para 9 a 10 personas. Incluye 3 bebidas, 3 fritas, 3 ensaladas y 3 postres</p>
+                <h3 class="font-display text-2xl font-semibold text-secondary-900 mb-2">Super Chico (El Globo)</h3>
+                <p class="text-secondary-800">Para 6 personas.</p>
+                <p class="text-secondary-800">3 Chorizos, 2 Morcillas, Riñón, Molleja, Chinchulín, Asado, Pollo, Cerdo, 3 Provoletas, 2 Porciones de Fritas, 2 Ensaladas a elección, 3 Bebidas a elección y 6 Postres a elección</p>
               </div>
               <span class="text-primary-500 font-bold text-xl">$185.000</span>
             </div>
