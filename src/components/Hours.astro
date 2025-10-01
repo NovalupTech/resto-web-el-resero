@@ -1,0 +1,66 @@
+---
+const week_hours_1 = import.meta.env.PUBLIC_WEEK_HOURS_1;
+const week_hours_2 = import.meta.env.PUBLIC_WEEK_HOURS_2;
+const weekend_hours_1 = import.meta.env.PUBLIC_WEEKEND_HOURS_1;
+const weekend_hours_2 = import.meta.env.PUBLIC_WEEKEND_HOURS_2;
+const days_closed = import.meta.env.PUBLIC_DAYS_CLOSED;
+---
+
+
+<div class="mt-20 bg-white rounded-2xl p-8 md:p-12 shadow-lg">
+<div class="text-center mb-12">
+    <h3 class="font-display text-3xl md:text-4xl font-bold text-secondary-800 mb-4">
+    Horarios de Atención
+    </h3>
+    <p class="text-xl text-secondary-600">
+    Te esperamos todos los días con el mejor servicio
+    </p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    <!-- Weekdays -->
+    <div class="text-center">
+    <div class="bg-primary-100 rounded-2xl p-8">
+        <i class="fas fa-calendar-week text-4xl text-primary-500 mb-4"></i>
+        <h4 class="font-display text-2xl font-semibold text-secondary-800 mb-4">
+        Lunes, Martes, Jueves, Viernes, Sábado y Domingo
+        </h4>
+        <p class="text-lg text-secondary-600 mb-2">Almuerzo: {week_hours_1}</p>
+        <p class="text-lg text-secondary-600">Cena: {week_hours_2}</p>
+    </div>
+    </div>
+
+    {
+        days_closed && (
+        <div class="text-center">
+        <div class="bg-primary-100 rounded-2xl p-8">
+            <i class="fas fa-calendar-week text-4xl text-primary-500 mb-4"></i>
+            <h4 class="font-display text-2xl font-semibold text-secondary-800 mb-4">
+            Dias cerrados
+            </h4>
+            <p class="text-lg text-secondary-600 mb-2">
+            {days_closed}
+            </p>
+            <p class="text-lg text-secondary-600">
+                Feriados abierto
+                <br/>
+                <br/>
+            </p>
+        </div>
+        </div>
+        )
+    }
+
+    <!-- Weekends -->
+    <!-- <div class="text-center">
+    <div class="bg-primary-100 rounded-2xl p-8">
+        <i class="fas fa-calendar-week text-4xl text-primary-500 mb-4"></i>
+        <h4 class="font-display text-2xl font-semibold text-secondary-800 mb-4">
+        Sábados y Domingos
+        </h4>
+        <p class="text-lg text-secondary-600 mb-2">Brunch: {weekend_hours_1}</p>
+        <p class="text-lg text-secondary-600">Cena: {weekend_hours_2}</p>
+    </div>
+    </div> -->
+</div>
+</div>

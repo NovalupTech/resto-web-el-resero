@@ -158,35 +158,6 @@ const weekend_hours_2 = import.meta.env.PUBLIC_WEEKEND_HOURS_2;
         </div>
       </div>
 
-      <!-- Hours -->
-      {
-        (week_hours_1 || week_hours_2 || weekend_hours_1 || weekend_hours_2) && (
-        <div>
-          <h3 class="font-display text-xl font-bold mb-6">Horarios</h3>
-          <div class="space-y-3">
-            <div>
-              <p class="text-primary-400 font-medium">Lunes - Viernes</p>
-              <p class="text-secondary-300 text-sm">{week_hours_1}</p>
-              {
-                week_hours_2 && (
-                  <p class="text-secondary-300 text-sm">{week_hours_2}</p>
-                )
-              }
-            </div>
-            <div>
-              <p class="text-primary-400 font-medium">Sábados - Domingos</p>
-              <p class="text-secondary-300 text-sm">{weekend_hours_1}</p>
-              {
-                weekend_hours_2 && (
-                  <p class="text-secondary-300 text-sm">{weekend_hours_2}</p>
-                )
-              }
-            </div>
-          </div>
-        </div>
-        )
-      }
-
         <!-- Newsletter -->
         <div class="mt-8">
           <h4 class="font-display text-lg font-semibold mb-4">Newsletter</h4>
