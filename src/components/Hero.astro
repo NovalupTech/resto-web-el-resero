@@ -1,4 +1,5 @@
 ---
+import Cocarda from './ui/Cocarda.astro';
 // Hero section component
 const title = import.meta.env.PUBLIC_TITLE;
 const title_image = import.meta.env.PUBLIC_TITLE_IMAGE;
@@ -37,6 +38,7 @@ const hero_video = import.meta.env.PUBLIC_HERO_VIDEO;
 
   <!-- Content -->
   <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+    <Cocarda />
     {
       title_image ? (
         <img src={title_image} alt="Title Image" class="w-full h-full object-cover" />
@@ -51,7 +53,7 @@ const hero_video = import.meta.env.PUBLIC_HERO_VIDEO;
         </h1>
       )
     }
-    <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed">
+    <!-- <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed">
       {
         description && (
           <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed">
@@ -59,7 +61,7 @@ const hero_video = import.meta.env.PUBLIC_HERO_VIDEO;
           </p>
         )
       }
-    </p>
+    </p> -->
     
     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
       <a 
